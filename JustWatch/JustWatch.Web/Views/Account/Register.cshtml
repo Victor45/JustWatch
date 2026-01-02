@@ -1,0 +1,64 @@
+﻿@{
+     Layout = null;
+     ViewData["Title"] = "LogIn";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="utf-8" />
+     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <title>@ViewData["Title"] - JustWatch</title>
+
+     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+     <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body class="register-page">
+     <div class="login-overlay">
+          <a asp-controller="Home" asp-action="Start" class="jw-logo login-logo">
+               <span class="jw-just">JUST</span>
+               <span class="jw-watch">WATCH</span>
+          </a>
+          <div class="register-box">
+               <h1>Register</h1>
+               <form method="post" class="login-form">
+                    <div class="name-row">
+                         <input type="text"
+                                class="login-input"
+                                placeholder="First Name"
+                                required />
+
+                         <input type="text"
+                                class="login-input"
+                                placeholder="Last Name"
+                                required />
+                    </div>
+
+                    <input type="email"
+                           class="login-input"
+                           placeholder="Email"
+                           required />
+
+                    <input type="password"
+                           class="login-input"
+                           placeholder="Password"
+                           required />
+
+                    <input type="password"
+                           class="login-input"
+                           placeholder="Repeat password"
+                           required />
+
+                    <button type="submit" class="login-btn">
+                         Register
+                    </button>
+
+                    <p class="login-text">
+                         Already have an account?
+                         <a asp-controller="Account" asp-action="LogIn">Sign in</a>
+                    </p>
+               </form>
+          </div>
+     </div>
+</body>
+</html>

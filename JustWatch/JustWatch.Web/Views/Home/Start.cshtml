@@ -1,0 +1,56 @@
+﻿
+@{
+    ViewData["Title"] = "Start";
+    ViewData["BodyClass"] = "bg-start";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model JustWatch.Web.Models.StartViewModel
+
+<div class="container start-page-container">
+     <h1 class="title-start">
+          Movies <i class="bi bi-chevron-right"></i>
+     </h1>
+     <div class="movies-grid">
+          @foreach (var movie in Model.Movies)
+          {
+               <div class="movie-card">
+                    <div class="movie-poster">
+                         <img src="@movie.PosterUrl" alt="@movie.Title poster" />
+                    </div>
+                    <div class="movie-title">@movie.Title</div>
+                    <div class="movie-year">@movie.ReleaseYear</div>
+               </div>
+          }
+     </div>
+     <h1 class="title-start">
+          TV Shows <i class="bi bi-chevron-right"></i>
+     </h1>
+     <div class="movies-grid">
+          @foreach (var tvshow in Model.TVShows)
+          {
+               <div class="movie-card">
+                    <div class="movie-poster">
+                         <img src="@tvshow.PosterUrl" alt="@tvshow.Title poster" />
+                    </div>
+                    <div class="movie-title">@tvshow.Title</div>
+                    <div class="movie-year">@tvshow.Seasons Seasons</div>
+               </div>
+          }
+     </div>
+     <h1 class="title-start">
+          TV Shows <i class="bi bi-chevron-right"></i>
+     </h1>
+     <div class="movies-grid">
+          @foreach (var tvshow in Model.TVShows)
+          {
+               <div class="movie-card">
+                    <div class="movie-poster">
+                         <img src="@tvshow.PosterUrl" alt="@tvshow.Title poster" />
+                    </div>
+                    <div class="movie-title">@tvshow.Title</div>
+                    <div class="movie-year">@tvshow.Seasons Seasons</div>
+               </div>
+          }
+     </div>
+</div>

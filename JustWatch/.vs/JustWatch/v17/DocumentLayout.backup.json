@@ -1,0 +1,248 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\JustWatch\\JustWatch\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\views\\home\\start.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\views\\home\\start.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\models\\startviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\models\\startviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\models\\tvshowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\models\\tvshowmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\models\\moviemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\models\\moviemodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|d:\\justwatch\\justwatch\\justwatch.web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{9CCA44EB-36CC-4658-BC4B-2AA9EE81410D}|JustWatch.Web\\JustWatch.Web.csproj|solutionrelative:justwatch.web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 8,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8034f19-ab72-4f06-83fd-f6832b41aa63}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "TVShowModel.cs",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\TVShowModel.cs",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Models\\TVShowModel.cs",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\TVShowModel.cs",
+              "RelativeToolTip": "JustWatch.Web\\Models\\TVShowModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-31T13:18:34.161Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Controllers\\AccountController.cs",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "JustWatch.Web\\Controllers\\AccountController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-30T11:03:37.918Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "JustWatch.Web\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-29T16:32:58.996Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Views\\Home\\Index.cshtml",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "JustWatch.Web\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-29T17:25:18.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "site.css",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "JustWatch.Web\\wwwroot\\css\\site.css",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\wwwroot\\css\\site.css*",
+              "RelativeToolTip": "JustWatch.Web\\wwwroot\\css\\site.css*",
+              "ViewState": "AgIAAC4BAAAAAAAAAAAAAEEBAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-29T16:41:37.684Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Start.cshtml",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Home\\Start.cshtml",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Views\\Home\\Start.cshtml",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Home\\Start.cshtml",
+              "RelativeToolTip": "JustWatch.Web\\Views\\Home\\Start.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-30T21:10:26.532Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "JustWatch.Web\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAAACcAAABoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-30T21:07:59.287Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StartViewModel.cs",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\StartViewModel.cs",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Models\\StartViewModel.cs",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\StartViewModel.cs",
+              "RelativeToolTip": "JustWatch.Web\\Models\\StartViewModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAABQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-01-02T14:29:06.244Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "MovieModel.cs",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\MovieModel.cs",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Models\\MovieModel.cs",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Models\\MovieModel.cs",
+              "RelativeToolTip": "JustWatch.Web\\Models\\MovieModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-12-30T21:43:45.308Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "LogIn.cshtml",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Account\\LogIn.cshtml",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Views\\Account\\LogIn.cshtml",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Account\\LogIn.cshtml",
+              "RelativeToolTip": "JustWatch.Web\\Views\\Account\\LogIn.cshtml",
+              "ViewState": "AgIAAAgAAAAAAAAAAAAmwBEAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-30T11:06:04.802Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "JustWatch.Web\\Views\\Account\\Register.cshtml",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "JustWatch.Web\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-12-30T12:29:06.711Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "bootstrap.css",
+              "DocumentMoniker": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeDocumentMoniker": "JustWatch.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ToolTip": "D:\\JustWatch\\JustWatch\\JustWatch.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "RelativeToolTip": "JustWatch.Web\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-12-29T16:41:52.564Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 142,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{a80febb4-e7e0-4147-b476-21aaf2453969}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

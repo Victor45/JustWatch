@@ -1,0 +1,277 @@
+﻿@using JustWatch.Web.Models.Actors
+@using JustWatch.Web.Models.Commom
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model JustWatch.Web.Models.Movies.MovieDetailsViewModel
+
+<div class="details-page" style="--bg-image: url('@Model.Wallpaper');">
+    <div class="container details-container">
+        <div class="details-poster">
+            <img src="@Model.PosterUrl" alt="Poster" />
+        </div>
+        <div class="details-info">
+            <div class="details-row det-title">
+                @Model.Title
+                @if (User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <div class="content-buttons">
+                        <button type="button" id="editMovieBtn" class="edit-movie-btn">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                        <button type="button" class="delete-movie-btn" data-movie-id="@Model.Id" data-movie-title="@Model.Title">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                }
+            </div>
+            <div class="details-row det-directed">
+                Directed by 
+                @Model.Director
+            </div>
+            <div class="details-row">
+                <span class="imdb-badge">IMDb</span>
+                @Model.Rating
+            </div>
+            <div class="details-row">
+                <i class="bi bi-clock"></i>
+                @Model.Duration min
+            </div>
+            <div class="details-row">
+                <i class="bi bi-calendar-check"></i>
+                @Model.Year
+            </div>
+            <div class="details-row">
+                <i class="bi bi-card-list"></i>
+                @string.Join(", ", Model.Genres.Select(g => g.Name))
+            </div>
+            <div class="details-row description-row">
+                <i class="bi bi-info-circle"></i>
+                @Model.Description
+            </div>
+            <div class="details-row">
+                <button type="button" class="jw-btn">
+                    <i class="bi bi-bookmark"></i>
+                    Add to watchlist
+                </button>
+                <button type="button" class="jw-btn">
+                    <i class="bi bi-check-square"></i>
+                    Watched
+                </button>
+                <button type="button" class="jw-btn trailer-btn">
+                    <i class="bi bi-play-fill"></i>
+                    Trailer
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="container cast-container">
+        <h1 class="title-start">
+            Cast of @Model.Title <i class="bi bi-chevron-right"></i>
+            @if(User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <button type="button" id="editActorsBtn" class="edit-movie-btn">
+                    <i class="bi bi-pencil"></i>
+                </button>
+            }
+        </h1>
+        <div class="cast-row">
+            @foreach (var ma in Model.Actors.OrderBy(x => x.CastOrder))
+            {
+                <div class="cast-card">
+                    <div class="cast-avatar">
+                        <img src="/images/defaultavatar.jpg" alt="@ma.Name"/>
+                    </div>
+                    
+                    <div class="cast-text">
+                        <div class="cast-name">@ma.Name</div>
+                        <div class="cast-role">@ma.Role</div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container cast-container">
+        <h1 class="title-start">
+            Comments
+        </h1>
+        <div class="comments-section">
+            @foreach(var comment in Model.Comments)
+            {
+                <div class="comment-card">
+                    <div class="user-profile-card">
+                        <img src="/images/defaultavatar.jpg" alt="@comment.UserName avatar" />
+                    </div>
+                    <div class="name-and-time">
+                        <div class="comm-author">@comment.UserName</div>
+                        <div class="comm-time">@comment.CreatedAt</div>
+                    </div>
+                    @comment.Text
+                    @if(User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <button type="button" class="delete-comm-btn" data-comm-id="@comment.ID" data-comm-user="@comment.UserName">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="container cast-container">
+        <form asp-controller="Movies" asp-action="AddComment" method="post" class="comment-form">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="ContentId" value="@Model.Id" />
+            <textarea name="Text" class="comment-area" rows="4" placeholder="Add a comment..." required></textarea>
+            <button type="submit" class="jw-btn comment-btn">
+                Add
+                <i class="bi bi-send"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<div id="deleteModal" class="modal-overlay hidden">
+    <div class="delete-modal-box">
+        <h3>Confirm delete</h3>
+        <p id="deleteMovieText">Are you sure you want to delete this movie?</p>
+
+        <form method="post" asp-action="DeleteMovie" asp-controller="Movies">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" id="deleteMovieId" />
+            <div class="modal-actions">
+                <button type="button" class="modal-buttons cancel-btn" id="cancelMovieButton" >Cancel</button>
+                <button type="submit" class="modal-buttons del-btn">Delete</button>
+            </div>
+        </form>
+    </div> 
+</div>
+
+<div id="editModal" class="modal-overlay hidden">
+    <div class="edit-modal-box">
+        <form method="post" asp-action="EditMovieDetails" asp-controller="Movies">
+            @Html.AntiForgeryToken()
+            <div class="edit-modal-sections">
+                <div class="edit-section edit-det">
+                    <h3>Details</h3>
+                    <input type="hidden" asp-for="Id" />
+                    <div class="name-row">
+                        <div class="column-alignment">
+                            <label>Title</label>
+                            <input asp-for="Title" class="jw-input" />
+                        </div>
+                        <div class="column-alignment">
+                            <label>Director</label>
+                            <input asp-for="Director" class="jw-input" />
+                        </div>
+                    </div>
+
+                    <div class="name-row">
+                        <div class="column-alignment">
+                            <label>Year</label>
+                            <input asp-for="Year" class="jw-input" />
+                        </div>
+                        <div class="column-alignment">
+                            <label>Rating</label>
+                            <input asp-for="Rating" class="jw-input" />
+                        </div>
+                        <div class="column-alignment">
+                            <label>Duration</label>
+                            <input asp-for="Duration" class="jw-input" />
+                        </div>
+                    </div>
+                    <div class="column-alignment">
+                        <label>Description</label>
+                        <textarea asp-for="Description" class="jw-input description-input" rows="4"></textarea>
+                    </div>
+                </div>
+                <div class="edit-section">
+                    <h3 class="genre-title">Genres</h3>
+                    @{
+                        var genresDto = Model.Genres.Select(g => new GenreViewModel { Id = g.Id, Name = g.Name }).ToList();
+                        var genresJson = System.Text.Json.JsonSerializer.Serialize(genresDto);
+                    }
+                    <input type="hidden" id="editGenresJson" name="editGenresJson" value='@genresJson' />
+                    <div id="editGenresGrid" class="genres-grid edit-movie-grid"></div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="modal-buttons cancel-btn" id="editCancelBtn">Cancel</button>
+                <button type="submit" class="modal-buttons update-btn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="editActorsModal" class="modal-overlay hidden">
+    <div class="edit-actors-box">
+        <form method="post" asp-action="EditMovieActors" asp-controller="Movies">
+            @Html.AntiForgeryToken()
+            <h2>Actors</h2>
+            <input type="hidden" asp-for="Id" />
+            <div class="actors-choice edit-actors-search">
+                <button id="newActorBtn" type="button" class="jw-input new-actor-btn">New actor</button>
+
+                <input id="searchActorInput" type="search" class="jw-input search-actor-input" placeholder="Search for an actor..." autocomplete="off" />
+                    @{
+                        var actorsVM = Model.Actors.Select(a => new ActorInMovieViewModel { Id = a.Id, Name = a.Name, Role = a.Role, CastOrder = a.CastOrder }).ToList();
+                        var actorsJson = System.Text.Json.JsonSerializer.Serialize(actorsVM);
+                    }
+                <ul id="actorsList" class="actors-list"></ul>
+                <input type="hidden" id="actorsJson" name="ActorsJson" value="@actorsJson" />
+            </div>
+
+            <div id="actorsRolesContainer"></div>
+            <div class="modal-actions">
+                <button type="button" class="modal-buttons cancel-btn" id="editActorsCancelBtn">Cancel</button>
+                <button type="submit" class="modal-buttons update-btn">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="newActorModal" class="modal">
+    <div class="actor-modal-content">
+        <div class="actor-modal-title">
+            <h3>Add a new actor</h3>
+            <span class="close">&times;</span>
+        </div>
+
+        <div id="newActorForm">
+            <input class="jw-input" name="Name" placeholder="Full Name" />
+            <input class="jw-input" name="BirthDate" placeholder="Birth Date" />
+            <textarea class="jw-input description-input" name="Description" placeholder="Description" rows="3"></textarea>
+            <button type="button" class="nav-btn submit-new-actor">Add</button>
+        </div>
+
+        <p id="errorMessage" style="color:red;"></p>
+    </div>
+</div>
+
+<div id="deleteCommentModal" class="modal-overlay hidden">
+    <div class="delete-modal-box">
+        <h3>Confirm delete</h3>
+        <p id="deleteCommentText">Are you sure you want to delete this comment?</p>
+
+        <form method="post" asp-action="DeleteComment" asp-controller="Comments">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" id="deleteCommentId" />
+            <div class="modal-actions">
+                <button type="button" class="modal-buttons cancel-btn" id="cancelCommentButton">Cancel</button>
+                <button type="submit" class="modal-buttons del-btn">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/deleteMovieModal.js"></script>
+    <script src="~/js/editMovieModal.js"></script>
+    <script src="~/js/editGenres.js"></script>
+    <script src="~/js/editActorsModal.js"></script>
+    <script src="~/js/newActor.js"></script>
+    <script src="~/js/newMovie.js"></script>
+    <script src="~/js/deleteCommentModal.js"></script>
+}

@@ -1,10 +1,14 @@
 ﻿@{
      Layout = null;
      ViewData["Title"] = "LogIn";
+     ViewData["BodyClass"] = "back-login";
 }
+
+@model LoginViewModel
 
 <!DOCTYPE html>
 <html lang="en">
+<html lang="en" class="@ViewData["BodyClass"]">
 <head>
      <meta charset="utf-8" />
      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,20 +25,14 @@
           </a>
           <div class="login-box">
                <h1>Log In</h1>
-               <form method="post" class="login-form">
-                    <input type="email"
-                           class="login-input"
-                           placeholder="Email"
-                           required />
+               <form asp-action="LogIn" asp-controller="Account" method="post" class="login-form">
+                   @Html.AntiForgeryToken()
 
-                    <input type="password"
-                           class="login-input"
-                           placeholder="Password"
-                           required />
+                    <input asp-for="Email" class="login-input" placeholder="Email" />
 
-                    <button type="submit" class="login-btn">
-                         Log in
-                    </button>
+                    <input asp-for="Password" class="login-input" placeholder="Password" />
+
+                    <button type="submit" class="login-btn">Log in</button>
 
                     <p class="login-text">
                          Don't have an account?
@@ -45,3 +43,7 @@
      </div>
 </body>
 </html>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -7,7 +7,6 @@
           public int Years { get; set; }
           public string Description { get; set; } = string.Empty;
           public string PosterUrl { get; set; } = string.Empty;
-
           public int Seasons { get; set; }
      }
 }

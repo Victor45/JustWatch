@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JustWatch.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+09a858d9391e28e64330a0d8ae0419248820928e")]
 [assembly: System.Reflection.AssemblyProductAttribute("JustWatch.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JustWatch.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

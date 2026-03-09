@@ -1,4 +1,4 @@
-/* _content/JustWatch.Web/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* /Views/Shared/_Layout.cshtml.rz.scp.css */
 /* Please see documentation at https://learn.microsoft.com/aspnet/core/client-side/bundling-and-minification
 for details on configuring this project to bundle and minify static web assets. */
 
@@ -41,7 +41,6 @@ button.accept-policy[b-yz1k9r3to5] {
 }
 
 .footer[b-yz1k9r3to5] {
-  position: absolute;
   bottom: 0;
   width: 100%;
   white-space: nowrap;

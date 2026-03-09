@@ -1,62 +1,121 @@
+using System.ComponentModel;
 using System.Diagnostics;
+using JustWatch.Application.Interfaces;
 using JustWatch.Web.Models;
+using JustWatch.Web.Models.Commom;
+using JustWatch.Web.Models.Movies;
+using JustWatch.Web.Models.TVShows;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JustWatch.Web.Controllers
 {
-     public class HomeController : Controller
-     {
-          private readonly ILogger<HomeController> _logger;
+    public class HomeController : Controller
+    {
+        private readonly ILogger<HomeController> _logger;
+        private readonly IMovieService _movieService;
+        private readonly ITVShowService _tvShowService;
+        private readonly ISearchService _searchService;
 
-          public HomeController(ILogger<HomeController> logger)
-          {
-               _logger = logger;
-          }
+        public HomeController(ILogger<HomeController> logger, IMovieService movieService, ITVShowService tvShowService, ISearchService searchService)
+        {
+            _logger = logger;
+            _movieService = movieService;
+            _tvShowService = tvShowService;
+            _searchService = searchService;
+        }
 
-          public IActionResult Index()
-          {
-               return View();
-          }
+        public IActionResult Index()
+        {
+            return View();
+        }
 
-          public IActionResult Start()
-          {
-               var movies = new List<MovieModel>
-               {
-                    new() { Id = 1, Title = "Dune: Part Two", ReleaseYear = 2024, PosterUrl="/images/dune2.jpg" },
-                    new() { Id = 2, Title = "Oppenheimer", ReleaseYear = 2023, PosterUrl="/images/oppenheimer.jpg" },
-                    new() { Id = 3, Title = "Interstellar", ReleaseYear = 2014, PosterUrl="/images/interstellar.jpg" },
-                    new() { Id = 4, Title = "The Batman", ReleaseYear = 2022, PosterUrl="/images/batman.jpg" },
-                    new() { Id = 5, Title = "Maze Runner", ReleaseYear = 2014, PosterUrl="/images/mazerunner.jpg" },
-                    new() { Id = 6, Title = "Caddo Lake", ReleaseYear = 2022, PosterUrl="/images/caddolake.jpg" },
-               };
+        public async Task<IActionResult> Start()
+        {
+            var moviesDto = await _movieService.GetTopMoviesAsync(6);
+            var tvshowsDto = await _tvShowService.GetTopShowsAsync(6);
 
-               var tvshows = new List<TVShowModel>
-               {
-                    new TVShowModel {Id = 1, Title = "Prison Break", Seasons = 5, PosterUrl="/images/pbreakposter.jpg" },
-                    new TVShowModel {Id = 2, Title = "Lucifer", Seasons = 5, PosterUrl="/images/luciferposter.jpg" },
-                    new TVShowModel {Id = 3, Title = "Supernatural", Seasons = 15, PosterUrl="/images/spnposter.jpg"},
-                    new TVShowModel {Id = 4, Title = "The Walking Dead", Seasons = 5, PosterUrl="/images/twdposter.jpg" },
-                    new TVShowModel {Id = 5, Title = "From", Seasons = 4, PosterUrl="/images/fromposter.jpg" },
-                    new TVShowModel {Id = 6, Title = "Stranger Things", Seasons = 5, PosterUrl="/images/strangerposter.jpg"}
-               };
+            var moviesVm = moviesDto.Select(movie => new MovieViewModel
+            {
+                Id = movie.Id,
+                Title = movie.Title,
+                Year = movie.Year,
+                PosterUrl = movie.PosterUrl,
+            }).ToList();
 
-               var moviesandtvshows = new StartViewModel
-               {
-                    Movies = movies,
-                    TVShows = tvshows,
-               };
-               return View(moviesandtvshows);
-          }
+            var tvshowsVm = tvshowsDto.Select(tvshow => new TVShowViewModel
+            {
+                Id = tvshow.Id,
+                Title = tvshow.Title,
+                Seasons = tvshow.Seasons,
+                PosterUrl = tvshow.PosterUrl,
+            }).ToList();
 
-          public IActionResult Privacy()
-          {
-               return View();
-          }
+            var moviesandtvshows = new HomeViewModel
+            {
+                Movies = moviesVm,
+                TVShows = tvshowsVm,
+            };
 
-          [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-          public IActionResult Error()
-          {
-               return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-          }
-     }
+            return View(moviesandtvshows);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Search(string? q, bool isFromButton = false)
+        {
+            q = (q ?? string.Empty).Trim();
+            if(q.Length < 2)
+            {
+                return isFromButton ? View(new List<SearchContentViewModel>()) : Ok(new List<SearchContentViewModel>());
+            }
+
+            var items = await _searchService.SearchContentAsync(q);
+
+            var itemsViewModel = items.Select(x => new SearchContentViewModel
+            {
+                Id = x.Id,
+                Title = x.Title,
+                PosterURL = x.PosterURL,
+                Info = x.Info,
+                Type = x.Type
+            }).ToList();    
+
+            return isFromButton ? View("SearchResult", itemsViewModel) : Ok(itemsViewModel);
+        }
+
+        //[HttpGet]
+        //public async Task<IActionResult> SearchResult(string? q)
+        //{
+
+        //    q = (q ?? string.Empty).Trim();
+        //    if (q.Length < 2)
+        //    {
+        //        return View(new List<SearchContentViewModel>());
+        //    }
+
+        //    var items = await _searchService.SearchContentAsync(q);
+
+        //    var itemsViewModel = items.Select(x => new SearchContentViewModel
+        //    {
+        //        Id = x.Id,
+        //        Title = x.Title,
+        //        PosterURL = x.PosterURL,
+        //        Info = x.Info,
+        //        Type = x.Type
+        //    }).ToList();
+
+        //    return View(itemsViewModel);
+        //}
+
+        public IActionResult Privacy()
+        {
+            return View();
+        }
+
+        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        public IActionResult Error()
+        {
+            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
 }

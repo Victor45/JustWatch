@@ -1,0 +1,181 @@
+﻿
+@{
+    ViewData["Title"] = "NewMovie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["BodyClass"] = "back-newmovie";
+}
+
+@model JustWatch.Web.Models.Movies.NewMovieViewModel
+
+<div class="input-overlay">
+    <div class="add-movie-box">
+        <form id="newMovie" asp-action="NewMovie" asp-controller="Movies" method="post" class="add-movie-form" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="tab">
+                <div>
+                    <h2>Add Details</h2>
+                </div>
+                <input asp-for="Title" class="jw-input" placeholder="Title" />
+                <input asp-for="Director" class="jw-input" placeholder="Director" />
+
+                <div class="name-row">
+                    <input asp-for="Year" class="jw-input" placeholder="Year" />
+                    <input asp-for="Rating" class="jw-input" placeholder="Rating" />
+                    <input asp-for="Duration" class="jw-input" placeholder="Duration" />
+                </div>
+
+                <textarea asp-for="Description" class="jw-input description-input" placeholder="Description" rows="4"></textarea>
+
+                <div class="actors-choice">
+                    <button id="newActorBtn" type="button" class="jw-input new-actor-btn">New actor</button>
+
+                    <input id="searchActorInput" type="search" class="jw-input search-actor-input" placeholder="Search for an actor..." autocomplete="off" />
+                    <ul id="actorsList" class="actors-list"></ul>
+                    <input type="hidden" id="actorsJson" name="ActorsJson" />
+                </div>
+
+                <div class="name-row">
+                    <div class="file-upload">
+                        <input type="file" id="posterUpload" name="Poster" class="jw-input" accept="image/*" hidden />
+                        <label class="jw-input image-upload">
+                            <span id="posterFileName" class="file-name">Poster</span>
+                            <label class="icon-for-img" for="posterUpload">
+                                <i class="bi bi-image"></i>
+                            </label>
+                        </label>
+                    </div>
+
+                    <div class="file-upload">
+                        <input type="file" id="wallpaperUpload" name="Wallpaper" class="jw-input" accept="image/*" hidden />
+                        <label class="jw-input image-upload">
+                            <span id="wallpaperFileName" class="file-name">Wallpaper</span>
+                            <label class="icon-for-img" for="wallpaperUpload">
+                                <i class="bi bi-image"></i>
+                            </label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab">
+                <h2>Set actors' roles</h2>
+                <div id="actorsRolesContainer"></div>
+            </div>
+
+            <div class="tab">
+                <h2>Set movie genres</h2>
+                <div id="genresGrid" class="genres-grid"></div>
+                <input type="hidden" id="genresJson" name="GenresJson" />
+            </div>
+
+            <hr />
+
+            <div class="navigation-buttons">
+                <button type="button" id="prevBtn" class="nav-btn" onclick="nextPrev(-1)">
+                    Back
+                </button>
+
+                <div>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                    <span class="step"></span>
+                </div>
+
+                <button type="button" id="nextBtn" class="nav-btn" onclick="nextPrev(1)">
+                    Next
+                </button>
+            </div>
+        </form>
+
+        <div id="newActorModal" class="modal">
+            <div class="actor-modal-content">
+                <div class="actor-modal-title">
+                    <h3>Add a new actor</h3>
+                    <span class="close">&times;</span>
+                </div>
+
+                <div id="newActorForm">
+                    <input class="jw-input" name="Name" placeholder="Full Name" />
+                    <input class="jw-input" name="BirthDate" placeholder="Birth Date" />
+                    <textarea class="jw-input description-input" name="Description" placeholder="Description" rows="3"></textarea>
+                    <button type="button" class="nav-btn submit-new-actor">Add</button>
+                </div>
+
+                <p id="errorMessage" style="color:red;"></p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const setups = [
+                { input: "posterUpload", label: "posterFileName" },
+                { input: "wallpaperUpload", label: "wallpaperFileName" }
+            ];
+
+            setups.forEach(s => {
+                const input = document.getElementById(s.input);
+                const label = document.getElementById(s.label);
+
+                if (!input || !label) return;
+
+                input.addEventListener("change", () => {
+                    label.textContent = input.files.length
+                        ? input.files[0].name
+                        : label.textContent;
+                });
+            });
+        });
+    </script>
+
+    <script>
+        var currentTab = 0; // tab-ul curent
+            showTab(currentTab);
+
+            function showTab(n) {
+                var x = document.getElementsByClassName("tab");
+                for (var i = 0; i < x.length; i++) {
+                    x[i].style.display = "none"; // ascunde toate taburile
+                }
+                x[n].style.display = "flex"; // afișează tabul curent
+
+                document.getElementById("prevBtn").style.display = n === 0 ? "none" : "flex";
+                document.getElementById("nextBtn").innerHTML = n === (x.length - 1) ? "Submit" : "Next";
+
+                fixStepIndicator(n);
+            }
+
+            function nextPrev(n) {
+                var x = document.getElementsByClassName("tab");
+
+                // Eliminăm validarea
+                // if (n === 1 && !validateForm()) return false;
+
+                x[currentTab].style.display = "none";
+
+                currentTab += n; // trece la următorul tab
+
+                if (currentTab >= x.length) {
+                    document.getElementById("newMovie").submit();
+                    return false;
+                }
+
+                showTab(currentTab);
+            }
+
+            function fixStepIndicator(n) {
+                var i, x = document.getElementsByClassName("step");
+                for (i = 0; i < x.length; i++) {
+                    x[i].className = x[i].className.replace(" active", "");
+                }
+                x[n].className += " active";
+            }
+    </script>
+
+    <script src="~/js/newActor.js"></script>
+    <script src="~/js/newMovie.js"></script>
+    <script src="~/js/genres.js"></script>
+}

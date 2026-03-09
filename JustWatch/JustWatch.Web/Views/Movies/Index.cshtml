@@ -1,0 +1,73 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    ViewData["BodyClass"] = "back-start";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model List<JustWatch.Web.Models.Movies.MovieViewModel>
+
+<div class="container start-page-container">
+    <h1 class="title-start">
+        <a asp-controller="Home" asp-action="Start">
+        <i class="bi bi-arrow-left"></i>
+        Movies
+        </a>
+        <div class="select-buttons ms-auto">
+            @if (User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+            {
+                <a asp-action="NewMovie" asp-controller="Movies" class="jw-btn">
+                    New
+                    <i class="bi bi-plus new-movie"></i>
+                </a>
+            }
+            <button type="button" class="jw-btn sort-btn">
+                Sort
+                <i class="bi bi-chevron-down"></i>
+            </button>
+            <button type="button" class="jw-btn">
+                Filter
+                <i class="bi bi-filter-right"></i>
+            </button>
+        </div>
+    </h1>
+    <div class="movies-grid">
+        @foreach (var movie in Model)
+        {
+            <div class="movie-card">
+                <a asp-controller="Movies" asp-action="Details" asp-route-id="@movie.Id">
+                    <div class="movie-poster">
+                        <img src="@movie.PosterUrl" alt="@movie.Title poster" />
+                    </div>
+                    <div class="movie-title">@movie.Title</div>
+                </a>
+                @if (User.Identity!.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    <button type="button" class="delete-movie-btn card-btn" data-movie-id="@movie.Id" data-movie-title="@movie.Title">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                }
+                <div class="movie-year">@movie.Year</div>
+            </div>
+        }
+    </div>
+</div>
+
+<div id="deleteModal" class="modal-overlay hidden">
+    <div class="delete-modal-box">
+        <h3>Confirm delete</h3>
+        <p id="deleteMovieText">Are you sure you want to delete this movie?</p>
+
+        <form method="post" asp-action="DeleteMovie" asp-controller="Movies">
+            @Html.AntiForgeryToken()
+            <input type="hidden" name="id" id="deleteMovieId" />
+            <div class="modal-actions">
+                <button type="button" class="modal-buttons cancel-btn" id="cancelMovieButton">Cancel</button>
+                <button type="submit" class="modal-buttons del-btn">Delete</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="~/js/deleteMovieModal.js"></script>
+}

@@ -3981,6 +3981,7 @@ textarea.form-control-lg {
   flex-wrap: inherit;
   align-items: center;
   justify-content: space-between;
+  height: 47px;
 }
 .navbar-brand {
   padding-top: 0.3125rem;
